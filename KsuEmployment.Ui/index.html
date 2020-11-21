@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script type="text/javascript" src="js/main.js"></script>
+	
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet"> 
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<header>
+	<div class="contentcontainer">
+		<div class="supportmenu">
+			<select>
+				<option>ru</option>
+				<option>en</option>
+			</select>
+			<a href="">Работодателю</a>
+		</div>
+		<div class="minemenu">
+			<div class="head_logo"><img src="img/logo.png"></div>
+			<nav class="head_nav">
+				<ul>
+					<li><a href="">Найти вакансии</a></li>
+					<li><a href="">Разместить резюме</a></li>
+				</ul>
+			</nav>
+			<div class="head_enter"><a  type="button" data-toggle="modal" data-target="#exampleModal">Name Lastname </a></div>
+		</div>
+	</div>	
+</header>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Регистрация пользователя</div>
+    	<div class="modal-subtitle">Регистрируйтесь всего за пару минут</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form>
+      		<div class="oneelem">
+      			<div class="title">Имя:</div>
+      			<input type="" name="">
+      		</div>
+      		<div class="oneelem">
+      			<div class="title">Фамилия:</div>
+      			<input type="" name="">
+      		</div>
+      		<div class="oneelem">
+      			<div class="title">Пароль:</div>
+      			<input type="" name="">
+      		</div>
+      		<div class="oneelem">
+      			<div class="title">Пароль еще раз:</div>
+      			<input type="" name="">
+      		</div>
+      		<div class="elem">
+      			<div class="title">Ваша роль:</div>
+      			<input class="checkbox" type="radio" name="test" value="1" checked> Я студент <br>
+				<input class="checkbox" type="radio" name="test" value="2"> Я работодатель
+      		</div>
+      		<div class="elem">
+      			<div class="title">Факультет/Отдел:</div>
+      			<select>
+					<option>ФКНМФ</option>
+					<option>ФДПО</option>
+				</select>
+      		</div>
+      	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Регистрация</button>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="intro">
+	<div class="intro_maininfo">
+		<div class="contentcontainer">
+			<div class="intro_maininfo-h1">Учись и работай вместе с нами!</div>
+			<div class="intro_maininfo-txt">Первый настоящий опыт работы вместе с родными людьми</div>
+			<form class="intro_form">
+				<input type="" name="">
+				<select>
+					<option>ФКНМФ</option>
+					<option>ФДПО</option>
+				</select>
+				<button class="button">Найти</button>
+			</form>
+		</div>
+	</div>
+	<div id="wave-container">
+		<div id="wave"></div>
+	</div>
+	<div class="introsearch">
+		<div class="searchblock">
+			<div class="title">Поиск по факультетам</div>
+			<ul>
+				<li><a href="">ФННМФ</a></li>
+				<li><a href="">ФДПО</a></li>
+				<li><a href="">ФизВосп</a></li>
+				<li><a href="">ФННМФ</a></li>
+				<li><a href="">ФДПО</a></li>
+			</ul>
+		</div>
+		<div class="searchblock">
+			<div class="title">Поиск по отделам</div>
+			<ul>
+				<li><a href="">ICTRI</a></li>
+				<li><a href="">ВЗАІКІ</a></li>
+				<li><a href="">Бассейн ХДУ</a></li>
+			</ul>
+		</div>
+		<div class="searchblock">
+			<div class="title">Поиск по работодателям</div>
+			<ul>
+				<li><a href="">Львов М.С.</a></li>
+				<li><a href="">Лемещук А.И.</a></li>
+				<li><a href="">Винник М.А.</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section id="forstudent">
+	<div id="wave-container"><div id="wave"></div></div>
+	<div class="spot-container">
+		<div class="spot" style="top:26%; left:26%;">
+			<div class="spot_num">01.</div>
+			<div class="spot_title">Регистрация</div>
+			<div class="spot_txt">Зарегистрируйся на сайте</div>
+		</div>
+		<div class="spot" style="top:23%; left:51%;">
+			<div class="spot_num">02.</div>
+			<div class="spot_title">Создание резюме</div>
+			<div class="spot_txt">Войди в свой личный кабинет и создай резюме</div>
+		</div>
+		<div class="spot" style="top:17%; left:79%;">
+			<div class="spot_num">03.</div>
+			<div class="spot_title">Поиск вакансий</div>
+			<div class="spot_txt">Найди вакансии по душе и оставь свои заявки</div>
+		</div>
+		<div class="spot" style="top:62%; left:14%;">
+			<div class="spot_num">04.</div>
+			<div class="spot_title">Собеседование</div>
+			<div class="spot_txt">Пройди собеседование</div>
+		</div>
+		<div class="spot" style="top:63%; left:71%;">
+			<div class="spot_num">05.</div>
+			<div class="spot_title">Работа</div>
+			<div class="spot_txt">Начинай работать</div>
+		</div>
+	</div>
+	<div class="title">Если ты студент, следуй этим 5 правилам и ты найдешь работу</div>
+	<div class="backimg"></div>
+</section>
+<section id="forteacher">
+	<div id="wave-container"><div id="wave"></div></div>
+		<div class="spot-container">
+		<div class="spot" style="top:20%; left:26%;">
+			<div class="spot_num">01.</div>
+			<div class="spot_title">Регистрация</div>
+			<div class="spot_txt">Зарегистрируйся на сайте</div>
+		</div>
+		<div class="spot" style="top:21%; left:52%;">
+			<div class="spot_num">02.</div>
+			<div class="spot_title">Создание вакансии</div>
+			<div class="spot_txt">Войди в свой личный кабинет и создай вакансию</div>
+		</div>
+		<div class="spot" style="top:14%; left:79%;">
+			<div class="spot_num">03.</div>
+			<div class="spot_title">Описание</div>
+			<div class="spot_txt">Детальное описание вакансии и требований поможет студентам понять суть работы</div>
+		</div>
+		<div class="spot" style="top:61%; left:11%;">
+			<div class="spot_num">04.</div>
+			<div class="spot_title">Тесты</div>
+			<div class="spot_txt">Создайте тесты для кандидатов или же используйте тесты из библиотеки</div>
+		</div>
+		<div class="spot" style="top:61%; left:41%;">
+			<div class="spot_num">05.</div>
+			<div class="spot_title">Запросы</div>
+			<div class="spot_txt">Проверяйте запросы студентов и их резюме на вакансии</div>
+		</div>
+		<div class="spot" style="top:51%; left:72%;">
+			<div class="spot_num">06.</div>
+			<div class="spot_title">Собеседования</div>
+			<div class="spot_txt">Проводите собеседования чтобы студенты подготавливались к реальниым собеседованиям и знали над чем работать</div>
+		</div>
+	</div>
+	<div class="title">Если ты работодатель, эти советы помогут</div>
+	<div class="backimg"></div>
+</section>
+	
+
+<footer>
+	<div class="footer_topinfo">
+		<div class="contentcontainer">
+			<div class="contacts">
+				<div class="cont_block">
+					<div class="cont-title">Адрес:</div>
+					<div class="cont-txt">вулиця Університетська, 27, Херсон, Херсонська область, 73000</div>
+				</div>
+				<div class="cont_block">
+					<div class="cont-title">E-mail:</div>
+					<div class="cont-txt">KSU@gmail.com.ua <br>ksuonline@gmail.com</div>
+				</div>
+				<div class="cont_block">
+					<div class="cont-title">Телефоны</div>
+					<div class="cont-txt">+38 (011) 111 - 11 - 11 <br>+38 (022) 222 - 22 - 22 <br>+38 (033) 333 - 33 - 33</div>
+				</div>
+				<div class="cont_block">
+					<div class="cont-title">Другие ресурсы:</div>
+					<div class="cont-txt">ksuonline.com.ua ksu.edu.ua<br>kspu.edu</div>
+				</div>
+			</div>
+			<div class="footnav">
+				<select>
+					<option>ru</option>
+					<option>en</option>
+				</select>
+				<a href="">Работодателю</a>
+
+				<nav class="head_nav">
+					<ul>
+						<li><a href="">Найти вакансии</a></li>
+						<li><a href="">Разместить резюме</a></li>
+					</ul>
+				</nav>
+			</div>	
+		</div>
+	</div>
+	<div id="wave-container"><div id="wave"></div></div>
+	<div class="footer_bottinfo">
+		<div class="container">
+			<div class="head_logo"><img src="img/logo.png"></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
