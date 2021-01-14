@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace KsuEmployment.Dal.Entities.Users
+namespace KsuEmployment.Dal.Entities.Employment.CV
 {
-    public class Role : BaseNamedEntity
+    public class CvEmail : BaseNamedEntity
     {
     }
 }
