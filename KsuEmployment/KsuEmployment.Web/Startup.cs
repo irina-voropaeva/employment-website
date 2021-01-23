@@ -38,8 +38,15 @@ namespace KsuEmployment.Web
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDeveloperExceptionPage();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "KsuEmployment.Web v1"));
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
+            });
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "KsuEmployment API");
+                c.RoutePrefix = "api/swagger";
+            });
 
             app.UseHttpsRedirection();
 
