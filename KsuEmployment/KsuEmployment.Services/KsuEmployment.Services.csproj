@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Employment\CV\" />
-    <Folder Include="Employment\CvVacancyShared\" />
     <Folder Include="Employment\Vacancy\" />
     <Folder Include="Users\" />
   </ItemGroup>

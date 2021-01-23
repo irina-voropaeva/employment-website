@@ -4,14 +4,16 @@ using KsuEmployment.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KsuEmployment.Dal.Migrations
 {
     [DbContext(typeof(KsuEmploymentContext))]
-    partial class KsuEmploymentContextModelSnapshot : ModelSnapshot
+    [Migration("20210123191559_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -331,6 +333,22 @@ namespace KsuEmployment.Dal.Migrations
                     b.HasIndex("PositionId");
 
                     b.ToTable("Vacancies");
+                });
+
+            modelBuilder.Entity("KsuEmployment.Dal.Entities.Users.Role", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("KsuEmployment.Dal.Entities.Users.User", b =>

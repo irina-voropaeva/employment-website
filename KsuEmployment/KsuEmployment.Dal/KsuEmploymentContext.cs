@@ -3,12 +3,13 @@ using KsuEmployment.Dal.Entities.Employment.CV;
 using KsuEmployment.Dal.Entities.Employment.CvVacancyShared;
 using KsuEmployment.Dal.Entities.Employment.Vacancy;
 using KsuEmployment.Dal.Entities.Users;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace KsuEmployment.Dal
 {
-    public class KsuEmploymentContext : DbContext
+    public class KsuEmploymentContext : IdentityDbContext<User>
     {
         #region CV
 
@@ -46,8 +47,6 @@ namespace KsuEmployment.Dal
         #region General
 
         public DbSet<Company> Companies { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
 
         #endregion
 
@@ -58,6 +57,11 @@ namespace KsuEmployment.Dal
         public KsuEmploymentContext(DbContextOptions
             <KsuEmploymentContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 

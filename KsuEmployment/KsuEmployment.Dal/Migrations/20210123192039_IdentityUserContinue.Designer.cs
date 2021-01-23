@@ -4,14 +4,16 @@ using KsuEmployment.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KsuEmployment.Dal.Migrations
 {
     [DbContext(typeof(KsuEmploymentContext))]
-    partial class KsuEmploymentContextModelSnapshot : ModelSnapshot
+    [Migration("20210123192039_IdentityUserContinue")]
+    partial class IdentityUserContinue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
