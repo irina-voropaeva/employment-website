@@ -1,6 +1,6 @@
 using System;
 
-namespace KsuEmployment
+namespace KsuEmployment.Web
 {
     public class WeatherForecast
     {
