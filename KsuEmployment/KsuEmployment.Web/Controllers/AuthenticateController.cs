@@ -66,7 +66,7 @@ namespace KsuEmployment.Web.Controllers
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Username);
+            var userExists = await userManager.FindByNameAsync(model.FirstName);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
@@ -74,7 +74,7 @@ namespace KsuEmployment.Web.Controllers
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
+                UserName = model.FirstName
             };
             var result = await userManager.CreateAsync(user, model.Password);
             return !result.Succeeded ? StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." }) : Ok(new Response { Status = "Success", Message = "User created successfully!" });
@@ -84,7 +84,7 @@ namespace KsuEmployment.Web.Controllers
         //[Route("register-admin")]
         //public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         //{
-        //    var userExists = await userManager.FindByNameAsync(model.Username);
+        //    var userExists = await userManager.FindByNameAsync(model.FirstName);
         //    if (userExists != null)
         //        return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
@@ -92,7 +92,7 @@ namespace KsuEmployment.Web.Controllers
         //    {
         //        Email = model.Email,
         //        SecurityStamp = Guid.NewGuid().ToString(),
-        //        UserName = model.Username
+        //        UserName = model.FirstName
         //    };
         //    var result = await userManager.CreateAsync(user, model.Password);
         //    if (!result.Succeeded)
