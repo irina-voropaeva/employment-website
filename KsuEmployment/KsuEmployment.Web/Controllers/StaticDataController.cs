@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using KsuEmployment.Services.Dtos;
+﻿using KsuEmployment.Services.Dtos;
 using KsuEmployment.Services.Employment.CvVacancyShared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +9,7 @@ namespace KsuEmployment.Web.Controllers
     public class StaticDataController : BaseController
     {
         private readonly IStaticDataService _staticDataService;
+        private const WebsiteLanguage Language = WebsiteLanguage.Ukr;
 
         public StaticDataController(IStaticDataService staticDataService)
         {
@@ -22,19 +21,23 @@ namespace KsuEmployment.Web.Controllers
         [Route("supported-languages")]
         public IActionResult GetSupportedLanguages()
         {
-            return Ok(Enum.GetValues(typeof(WebsiteLanguage))
-                .Cast<WebsiteLanguage>()
-                .ToDictionary(t => (int)t, t => t.ToString()));
+            return Ok(_staticDataService.GetSupportedLanguages());
         }
 
         [HttpGet]
         [AllowAnonymous]
         [Route("employment-types")]
-        public IActionResult GetEmploymentTypes(WebsiteLanguage language)
+        public IActionResult GetEmploymentTypes()
         {
-            return Ok(_staticDataService.GetAllTranslatedEmploymentTypes(language));
-
+            return Ok(_staticDataService.GetAllTranslatedEmploymentTypes(Language));
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("user-roles")]
+        public IActionResult GetUserRoles()
+        {
+            return Ok(_staticDataService.GetUserRoles());
+        }
     }
 }

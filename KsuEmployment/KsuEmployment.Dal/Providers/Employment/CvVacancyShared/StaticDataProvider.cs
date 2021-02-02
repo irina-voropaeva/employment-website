@@ -7,7 +7,6 @@ namespace KsuEmployment.Dal.Providers.Employment.CvVacancyShared
 {
     public class StaticDataProvider : IStaticDataProvider
     {
-
         public Task<List<EmploymentType>> GetAll()
         {
             using var context = new KsuEmploymentContext();

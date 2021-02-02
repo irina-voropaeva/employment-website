@@ -6,5 +6,8 @@ namespace KsuEmployment.Services.Employment.CvVacancyShared
     public interface IStaticDataService
     {
         Dictionary<EmploymentType, string> GetAllTranslatedEmploymentTypes(WebsiteLanguage lang);
+        Dictionary<int, string> GetSupportedLanguages();
+
+        Dictionary<int, string> GetUserRoles();
     }
 }

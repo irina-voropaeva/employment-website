@@ -6,8 +6,11 @@
 
   <ItemGroup>
     <Folder Include="Employment\CV\" />
-    <Folder Include="Employment\Vacancy\" />
     <Folder Include="Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KsuEmployment.Core\KsuEmployment.Core.csproj" />
   </ItemGroup>
 
 </Project>

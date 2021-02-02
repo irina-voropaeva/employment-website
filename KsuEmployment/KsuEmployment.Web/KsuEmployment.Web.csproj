@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KsuEmployment.Core\KsuEmployment.Core.csproj" />
     <ProjectReference Include="..\KsuEmployment.Dal\KsuEmployment.Dal.csproj" />
     <ProjectReference Include="..\KsuEmployment.Services\KsuEmployment.Services.csproj" />
   </ItemGroup>

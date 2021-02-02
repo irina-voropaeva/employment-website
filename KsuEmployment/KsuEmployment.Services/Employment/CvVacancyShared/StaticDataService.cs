@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using KsuEmployment.Core;
 using KsuEmployment.Services.Dtos;
 
 namespace KsuEmployment.Services.Employment.CvVacancyShared
@@ -7,7 +10,7 @@ namespace KsuEmployment.Services.Employment.CvVacancyShared
     public class StaticDataService : IStaticDataService
     {
         #region EmploymentTypeDictionaries
-        private readonly Dictionary<EmploymentType, string> _employmentTypeEngDict = new Dictionary<EmploymentType, string>()
+        private readonly Dictionary<EmploymentType, string> _employmentTypeEngDict = new()
         {
             {
                 EmploymentType.FullTime, "Full-time"
@@ -29,7 +32,7 @@ namespace KsuEmployment.Services.Employment.CvVacancyShared
             },
         };
 
-        private readonly Dictionary<EmploymentType, string> _employmentTypeUkrDict = new Dictionary<EmploymentType, string>()
+        private readonly Dictionary<EmploymentType, string> _employmentTypeUkrDict = new()
         {
             {
                 EmploymentType.FullTime, "Повна зайнятість"
@@ -59,8 +62,25 @@ namespace KsuEmployment.Services.Employment.CvVacancyShared
             {
                 WebsiteLanguage.Eng => _employmentTypeEngDict,
                 WebsiteLanguage.Ukr => _employmentTypeUkrDict,
-                _ => throw new InvalidEnumArgumentException("Not supported EmploymentType value")
+                _ => _employmentTypeEngDict
             };
+        }
+
+        private Dictionary<int, string> GetDictionaryConvertedEnum<T>() where T : Enum
+        {
+            return Enum.GetValues(typeof(T))
+                .Cast<T>()
+                .ToDictionary(t => Convert.ToInt32(t), t => t.ToString());
+        }
+
+        public Dictionary<int, string> GetSupportedLanguages()
+        {
+            return GetDictionaryConvertedEnum<WebsiteLanguage>();
+        }
+
+        public Dictionary<int, string> GetUserRoles()
+        {
+            return GetDictionaryConvertedEnum<UserRoles>();
         }
     }
 

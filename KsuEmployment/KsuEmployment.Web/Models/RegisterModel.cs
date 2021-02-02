@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using KsuEmployment.Core;
 
 namespace KsuEmployment.Web.Models
 {
@@ -18,6 +19,6 @@ namespace KsuEmployment.Web.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Role should be chosen")]
-
+        public UserRoles Role { get; set; }
     }
 }

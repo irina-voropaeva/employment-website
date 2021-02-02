@@ -13,7 +13,6 @@ namespace KsuEmployment.Dal.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
         }
     }
 }

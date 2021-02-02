@@ -15,8 +15,8 @@ using KsuEmployment.Web.Models;
 
 namespace KsuEmployment.Web.Controllers
 {
-    [Route("api/auth")]
     [ApiController]
+    [Route("api/auth")]
     public class AuthenticateController : ControllerBase
     {
         private readonly UserManager<User> userManager;
@@ -40,16 +40,16 @@ namespace KsuEmployment.Web.Controllers
 
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new(ClaimTypes.Name, user.UserName),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
             authClaims.AddRange(userRoles.Select(userRole => new Claim(ClaimTypes.Role, userRole)));
 
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["JWT:ValidIssuer"],
-                audience: _configuration["JWT:ValidAudience"],
+                _configuration["JWT:ValidIssuer"],
+                _configuration["JWT:ValidAudience"],
                 expires: DateTime.Now.AddHours(3),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
@@ -70,7 +70,7 @@ namespace KsuEmployment.Web.Controllers
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
 
-            var user = new User()
+            var user = new User
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
@@ -79,36 +79,5 @@ namespace KsuEmployment.Web.Controllers
             var result = await userManager.CreateAsync(user, model.Password);
             return !result.Succeeded ? StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." }) : Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
-
-        //[HttpPost]
-        //[Route("register-admin")]
-        //public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
-        //{
-        //    var userExists = await userManager.FindByNameAsync(model.FirstName);
-        //    if (userExists != null)
-        //        return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
-
-        //    var user = new User()
-        //    {
-        //        Email = model.Email,
-        //        SecurityStamp = Guid.NewGuid().ToString(),
-        //        UserName = model.FirstName
-        //    };
-        //    var result = await userManager.CreateAsync(user, model.Password);
-        //    if (!result.Succeeded)
-        //        return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
-
-        //    if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
-        //        await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
-        //    if (!await roleManager.RoleExistsAsync(UserRoles.User))
-        //        await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
-        //    if (await roleManager.RoleExistsAsync(UserRoles.Admin))
-        //    {
-        //        await userManager.AddToRoleAsync(user, UserRoles.Admin);
-        //    }
-
-        //    return Ok(new Response { Status = "Success", Message = "User created successfully!" });
-        //}
     }
 }

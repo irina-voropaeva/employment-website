@@ -8,6 +8,7 @@ using KsuEmployment.Dal;
 using KsuEmployment.Dal.Entities.Users;
 using KsuEmployment.Dal.Providers.Employment.CvVacancyShared;
 using KsuEmployment.Services.Employment.CvVacancyShared;
+using KsuEmployment.Services.Employment.Vacancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,7 @@ namespace KsuEmployment.Web
 
             services.AddTransient<IStaticDataService, StaticDataService>();
             services.AddTransient<IStaticDataProvider, StaticDataProvider>();
+            services.AddTransient<IVacancyService, VacancyService>();
 
             // For Identity  
             services.AddIdentity<User, IdentityRole>()
